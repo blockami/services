@@ -212,14 +212,14 @@ func (e *Information) TransactionInformation(ctx context.Context, req *informati
 		currency = "USD"
 	}
 
-	value, err := EventsValue(&rsp.Events, req.Network, req.Currency, int(rsp.Transaction.RawData.Timestamp), e.pricing_client)
+	value, err := EventsValue(&rsp.Events, req.Network, currency, int(rsp.Transaction.RawData.Timestamp), e.pricing_client)
 	if err != nil {
 		return err
 	}
 
 	rsp.Value = &information.Value{
 		Amount:   value,
-		Currency: req.Currency,
+		Currency: currency,
 	}
 	return nil
 }
