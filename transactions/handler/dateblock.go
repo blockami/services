@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/blockami/common/key"
+	"github.com/blockami/servicescommon/key"
 	"github.com/micro/micro/v3/service/config"
 	"github.com/micro/micro/v3/service/errors"
 )

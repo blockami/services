@@ -14,7 +14,7 @@ import (
 	"github.com/micro/micro/v3/service/store"
 	"github.com/nanmu42/etherscan-api"
 
-	abi "github.com/blockami/abi/proto"
+	abi "github.com/blockami/servicesabi/proto"
 )
 
 type Abi struct{}

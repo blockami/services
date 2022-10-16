@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/blockami/interpret/handler"
-	pb "github.com/blockami/interpret/proto"
+	"github.com/blockami/servicesinterpret/handler"
+	pb "github.com/blockami/servicesinterpret/proto"
 
 	"github.com/micro/micro/plugin/prometheus/v3"
 	"github.com/micro/micro/v3/service"

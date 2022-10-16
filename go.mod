@@ -1,4 +1,4 @@
-module github.com/blockami/abi
+module github.com/blockami/services
 
 go 1.18
 

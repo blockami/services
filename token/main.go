@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/blockami/token/handler"
-	pb "github.com/blockami/token/proto"
+	"github.com/blockami/servicestoken/handler"
+	pb "github.com/blockami/servicestoken/proto"
 
 	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
