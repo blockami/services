@@ -10,11 +10,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/blockami/servicescommon/key"
+	"github.com/blockami/services/common/key"
 	"github.com/micro/micro/v3/service/config"
 	"github.com/micro/micro/v3/service/errors"
 
-	pricing "github.com/blockami/servicespricing/proto"
+	pricing "github.com/blockami/services/pricing/proto"
 )
 
 type Pricing struct {

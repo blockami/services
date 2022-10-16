@@ -7,13 +7,13 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/blockami/servicescommon/key"
+	"github.com/blockami/services/common/key"
 	"github.com/micro/micro/v3/service/config"
 	"github.com/micro/micro/v3/service/errors"
 	log "github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
 
-	token "github.com/blockami/servicestoken/proto"
+	token "github.com/blockami/services/token/proto"
 )
 
 type Token struct{}

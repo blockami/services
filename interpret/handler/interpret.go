@@ -13,9 +13,9 @@ import (
 	"github.com/micro/micro/v3/service/errors"
 	log "github.com/micro/micro/v3/service/logger"
 
-	interpret "github.com/blockami/servicesinterpret/proto"
+	interpret "github.com/blockami/services/interpret/proto"
 
-	abi "github.com/blockami/servicesabi/proto"
+	abi "github.com/blockami/services/abi/proto"
 )
 
 type Interpret struct {

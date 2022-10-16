@@ -14,7 +14,7 @@ import (
 	log "github.com/micro/micro/v3/service/logger"
 	"github.com/nanmu42/etherscan-api"
 
-	transactions "github.com/blockami/servicestransactions/proto"
+	transactions "github.com/blockami/services/transactions/proto"
 )
 
 // TODO initialize clients on demand depending on the network with overloaded struct and saving clients on an array

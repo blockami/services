@@ -10,10 +10,10 @@ import (
 	"github.com/micro/micro/v3/service"
 	"github.com/open-policy-agent/opa/sdk"
 
-	information "github.com/blockami/servicesinformation/proto"
-	interpret "github.com/blockami/servicesinterpret/proto"
-	pricing "github.com/blockami/servicespricing/proto"
-	transactions "github.com/blockami/servicestransactions/proto"
+	information "github.com/blockami/services/information/proto"
+	interpret "github.com/blockami/services/interpret/proto"
+	pricing "github.com/blockami/services/pricing/proto"
+	transactions "github.com/blockami/services/transactions/proto"
 )
 
 type Information struct {
