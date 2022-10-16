@@ -89,6 +89,14 @@ func EventsValue(events *[]*information.Event, network string, currency string, 
 
 func (e *Information) TransactionInformation(ctx context.Context, req *information.TransactionInformationRequest, rsp *information.TransactionInformationResponse) error {
 
+	if req.Network == "" {
+		req.Network = "ETH"
+	}
+
+	if req.Currency == "" {
+		req.Currency = "USD"
+	}
+
 	tx_response, err := e.transactions_client.SingleTransaction(context.Background(), &transactions.SingleTransactionRequest{
 		Network: req.Network,
 		TxHash:  req.TxHash,
@@ -207,19 +215,14 @@ func (e *Information) TransactionInformation(ctx context.Context, req *informati
 		rsp.Events = append(rsp.Events, &event)
 	}
 
-	currency := req.Currency
-	if currency == "" {
-		currency = "USD"
-	}
-
-	value, err := EventsValue(&rsp.Events, req.Network, currency, int(rsp.Transaction.RawData.Timestamp), e.pricing_client)
+	value, err := EventsValue(&rsp.Events, req.Network, req.Currency, int(rsp.Transaction.RawData.Timestamp), e.pricing_client)
 	if err != nil {
 		return err
 	}
 
 	rsp.Value = &information.Value{
 		Amount:   value,
-		Currency: currency,
+		Currency: req.Currency,
 	}
 	return nil
 }
