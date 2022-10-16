@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package token;
+
+option go_package = "./proto;token";
+
+service Token {
+	rpc GetTokenInfo(TokenInfoRequest) returns (TokenInfoResponse) {}
+}
+
+message TokenInfoRequest {
+	string network = 1;
+	string address = 2;
+}
+
+message TokenInfoResponse {
+	string name = 1;
+	string ticker = 2;
+	int32 decimals = 3;
+	string logoUrl = 4;
+}

@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package transactions;
+
+option go_package = "./proto;transactions";
+
+service Transactions {
+	rpc SingleTransaction(SingleTransactionRequest) returns (SingleTransactionResponse) {}
+	rpc AllTransactions(AllTransactionsRequest) returns (AllTransactionsResponse) {}
+	rpc TransactionLogs(TransactionLogsRequest) returns (TransactionLogsResponse) {}
+}
+
+message SingleTransactionRequest {
+	string network = 1;
+	string tx_hash = 2;
+}
+
+message SingleTransactionResponse {
+	string tx_hash = 1;
+	uint64 block = 2;
+	string from = 3;
+	string to = 4;
+    string value = 5;
+	string input = 6;
+	bool status = 7;
+	uint64 timestamp = 8;
+}
+
+message AllTransactionsRequest {
+	string network = 1;
+	string address = 2;
+	string from = 3;
+	string to = 4;
+}
+
+message AllTransactionsResponse {
+	repeated SingleTransactionResponse transactions = 1;
+}
+
+message TransactionLogsRequest {
+	string network = 1;
+	string tx_hash = 2;
+}
+
+message TransactionLogsResponse {
+	repeated Log logs = 1;
+}
+
+message Log {
+	string tx_hash = 1;
+	string contract = 2;
+	int32 index = 3;
+	string data = 4;
+	repeated string topics = 5;
+}

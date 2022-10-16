@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package interpret;
+
+option go_package = "./proto;interpret";
+
+service Interpret {
+	rpc InterpretFunction(InterpretFunctionRequest) returns (InterpretFunctionResponse) {}
+	rpc InterpretLog(InterpretLogRequest) returns (InterpretLogResponse) {}
+}
+
+message InterpretFunctionRequest {
+	string network = 1;
+	string contract = 2;
+	string input = 3;
+}
+
+message InterpretLogRequest {
+	string network = 1;
+	string contract = 2;
+	repeated string topics = 3;
+	string data = 4;
+}
+
+message InterpretFunctionResponse {
+    string method = 1;
+    string method_full = 2;
+	repeated Parameter parameters = 3;
+}
+
+message InterpretLogResponse {
+	string name = 1;
+	repeated Parameter parameters = 2;
+}
+
+message Parameter {
+    string name = 1;
+    string value = 2;
+}
