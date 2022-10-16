@@ -106,7 +106,10 @@ func (e *Information) TransactionInformation(ctx context.Context, req *informati
 		return err
 	}
 
-	canonicalAddress := common.HexToAddress(req.Address)
+	canonicalAddress := common.HexToAddress(tx_response.From)
+	if req.Address != "" {
+		canonicalAddress = common.HexToAddress(req.Address)
+	}
 
 	rsp.Network = req.Network
 	rsp.Address = canonicalAddress.String()
@@ -202,6 +205,11 @@ func (e *Information) TransactionInformation(ctx context.Context, req *informati
 			fmt.Println("Error marshal: ", err)
 		}
 		rsp.Events = append(rsp.Events, &event)
+	}
+
+	currency := req.Currency
+	if currency == "" {
+		currency = "USD"
 	}
 
 	value, err := EventsValue(&rsp.Events, req.Network, req.Currency, int(rsp.Transaction.RawData.Timestamp), e.pricing_client)
